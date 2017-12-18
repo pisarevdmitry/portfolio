@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Добро пожаловать</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="assets/scripts/bundle.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="intro">
+        <div class="intro__header"><a class="btn btn_autorization" href=""><span class="btn__text">Авторизоваться</span></a></div>
+        <main class="intro__main">
+          <div class="intro__flip-container">
+            <div class="user-preview">
+              <div class="user-preview__image"></div>
+              <h2 class="user-preview__title">Дмитрий Писарев</h2><span class="user-preview__text">Личный сайт разработчика</span>
+              <ul class="social">
+                <li class="social__item"><a class="social__link" href="#">
+                    <svg class="social__image">
+                      <use xlink:href="assets/images/svg/sprite.svg#vk"></use>
+                    </svg></a></li>
+                <li class="social__item"><a class="social__link" href="#">
+                    <svg class="social__image">
+                      <use xlink:href="assets/images/svg/sprite.svg#github"></use>
+                    </svg></a></li>
+                <li class="social__item"><a class="social__link" href="#">
+                    <svg class="social__image">
+                      <use xlink:href="assets/images/svg/sprite.svg#in"></use>
+                    </svg></a></li>
+              </ul>
+              <ul class="intro__nav">
+                <li class="intro__nav-item"><a class="intro__nav-link" href="about.html">Мои работы</a></li>
+                <li class="intro__nav-item"><a class="intro__nav-link" href="my-works.html">Обо мне</a></li>
+                <li class="intro__nav-item"><a class="intro__nav-link" href="blog.html">Блог</a></li>
+              </ul>
+            </div>
+            <div class="autherization form-container">
+              <h2 class="autherization__title">авторизуйтесь</h2>
+              <form class="form autherization__form" action="" method="POST">
+                <div class="form__row">
+                  <label class="form__label form__label_text" for="name">
+                    <svg class="form__image">
+                      <use xlink:href="assets/images/svg/sprite.svg#login"></use>
+                    </svg>
+                  </label>
+                  <input class="form__input" type="text" name="name" id="name" placeholder="Логин">
+                </div>
+                <div class="form__row">
+                  <label class="form__label form__label_text" for="password">
+                    <svg class="form__image">
+                      <use xlink:href="assets/images/svg/sprite.svg#password"></use>
+                    </svg>
+                  </label>
+                  <input class="form__input" type="password" name="password" id="password" placeholder="Пароль">
+                </div>
+                <div class="form__row">
+                  <input class="form__input" type="checkbox" name="chekbox" id="checkbox">
+                  <label class="form__label form__label_type_check" for="checkbox">Я человек</label>
+                </div>
+                <div class="form__row form__row_radio">
+                  <div class="form__radio_title">Вы точно не робот?</div>
+                  <div class="form__column">
+                    <input class="form__input" type="radio" name="radio" id="yes">
+                    <label class="form__label form__label_type_radio" for="yes">Да</label>
+                  </div>
+                  <div class="form__column">
+                    <input class="form__input" type="radio" name="radio" id="no">
+                    <label class="form__label form__label_type_radio" for="no">Не уверен</label>
+                  </div>
+                </div>
+                <div class="form__row form__row_buttons"><a class="form__link">Мои работы</a>
+                  <input class="form__submit" type="submit" name="submit" value="Войти">
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+        <div class="intro__footer">
+          <ul class="signature">
+            <li class="signature__item">Дмитрий Писарев</li>
+            <li class="signature__item">создано с любовью в LoftSchool</li>
+            <li class="signature__item">2017</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
