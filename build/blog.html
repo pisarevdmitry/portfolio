@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="hero">
+      <section class="hero">
         <div class="hero__top-line">
           <ul class="social">
             <li class="social__item"><a class="social__link" href="#">
@@ -34,12 +34,15 @@
             <svg class="bg__image bg__image_intro">
               <use xlink:href="assets/images/svg/sprite.svg#stars1"></use>
             </svg></span>
-          <div class="my-image"></div><span class="title white">Блог</span><span class="main-text white">Статьи, которые я написал</span>
-        </div>
+          <div class="hero__image"></div><span class="title white">Блог</span><span class="main-text white">Статьи, которые я написал</span>
+        </div><a class="scroll scroll__down">
+          <svg class="scroll__image">
+            <use xlink:href="assets/images/svg/sprite.svg#portf_arrow_down"></use>
+          </svg></a>
         <svg class="hero__bg hero__bg_blog">
           <use xlink:href="assets/images/svg/sprite.svg#bg"></use>
         </svg>
-      </header>
+      </section>
       <section class="blog">
         <div class="blog__content">
           <main class="blog__articles">
@@ -96,10 +99,10 @@
           </main>
           <aside class="blog__nav">
             <ul class="articles-list">
-              <li class="articles-list__item articles-list__item_active"><span class="main-text">Самое важное в SASS</span></li>
-              <li class="articles-list__item"><span class="main-text">Приёмы в вёрстке, без которых не обходится ни один сайт</span></li>
-              <li class="articles-list__item"><span class="main-text">Самый необходимый набор Gulp плагинов</span></li>
-              <li class="articles-list__item"><span class="main-text">Почему я выбрал Jade</span></li>
+              <li class="articles-list__item articles-list__item_active"><span class="articles__text">Самое важное в SASS</span></li>
+              <li class="articles-list__item"><span class="articles__text">Приёмы в вёрстке, без которых не обходится ни один сайт</span></li>
+              <li class="articles-list__item"><span class="articles__text">Самый необходимый набор Gulp плагинов</span></li>
+              <li class="articles-list__item"><span class="articles__text">Почему я выбрал Jade</span></li>
             </ul>
           </aside>
         </div>
