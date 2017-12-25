@@ -1,0 +1,153 @@
+extends ../template
+
+block variables
+    - var title = 'Мои работы'
+
+
+block content
+    div.wrapper
+        section.hero#hero
+                video.video(autoplay loop muted)
+                    source.video__source(src="assets/images/video/night.mp4" type="video/mp4")
+                .parallax#parallax
+                    .parallax__layer
+                        img.parallax__image.parallax__image_about(src="assets/images/png/Layer 1.png")
+                div.hero__top-line
+                    include ../common/social
+                    a.hamburger-menu#hamburger-menu(href="#")
+                        div.hamburger-menu-bars
+                div.hero__content
+                    span.bg.bg_intro
+                        svg.bg__image.bg__image_intro
+                            use(xlink:href="assets/images/svg/sprite.svg#stars1")
+                    div.hero__image
+                    span.hero__title.white Писарев Дмитрий
+                    span.main-text.white Личный сайт веб-разработчика
+                a.scroll.scroll__down
+                    svg.scroll__image
+                        use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_down")
+                svg.hero__bg.hero__bg_works
+                    use(xlink:href="assets/images/svg/sprite.svg#bg")
+                .hero__title_works.title.white Мои работы
+                    span.bg.bg_works
+                        svg.bg__image
+                            use(xlink:href="assets/images/svg/sprite.svg#stars2")
+        section.section.slider
+                .slider__decription
+                    .slider__title Сайт "воркадиум"
+                    .slider__tech.accent HTML, CSS
+                    .slider__link
+                        a.btn.btn_link(href="http://cd35590.tmweb.ru/")
+                            span.btn__text Посмотреть сайт
+                .slider__head
+                    .slider__image_big
+                        img.slider__picture(src="assets/images/jpg/work-1.png")
+                .slider__slide
+                    ul.slider__slide_prev.slider-list
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-1.png")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-2.png")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-3.png")
+                        li.slider__overlay
+                            a.scroll.scroll__slider
+                                svg.scroll__image.scroll__image_slider
+                                    use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_down")
+                    ul.slider__slide_next.slider-list
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-3.png")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-2.png")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-3.png")
+                        .slider__overlay
+                            a.scroll.scroll__slider
+                                svg.scroll__image.scroll__image_slider
+                                    use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_up")
+
+
+        section.reviews
+            .reviews__title.title.white Что обо мне говорят
+               span.bg.bg_review
+                    svg.bg__image
+                        use(xlink:href="assets/images/svg/sprite.svg#stars3")
+            ul.reviewers
+                li.reviewer
+                    .reviewer__image
+                        img.reviewer__picture.reviewer__picture_big(src="assets/images/jpg/reviewer1.jpg")
+                    .reviewer__text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .reviewer__signature
+                        span.reviewer__name Ковальчук Дмитрий
+                        span — основатель Loftschool
+
+                li.reviewer
+                    .reviewer__image
+                        img.reviewer__picture(src="assets/images/jpg/reviewer2.jpg")
+                    .reviewer__text Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                    .reviewer__signature
+                        span.reviewer__name Сабанцев Владимир
+                        span — преподаватель
+            .form-container.form-container_feedback
+                h2.sub-title.white.line Связаться со мной
+                form.form.feedback(action="" method="POST")
+                    div.form__row
+                        input.form__input.form__input_feedback.main-text(type="text" name="name"  placeholder="Ваше имя")
+                    div.form__row
+                        input.form__input.form__input_feedback.main-text(type="email" name="name"  placeholder="Ваш email")
+                    div.form__row
+                       textarea.form__textarea.main-text(name="textarea" placeholder="Ваше сообщение")
+                    div.form__row.form__row_buttons
+                        input.form__submit.form__submit_feedback(type='submit' name="submit" value="Отправить")
+                        input.form__reset.form__reset_feedback(type='reset' name="submit" value="Очистить")
+            .scroll.scroll__up
+                svg.scroll__image
+                    use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_up")
+
+            footer.footer.footer_absolute
+
+                div.footer__column
+                    span.main-text.white Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                div.footer__column
+                    nav.navigation#navigation
+                        ul.navigation__list
+                            li.navigation__item
+                                a.navigation__link.navigation__link_current(href="my-works.html")
+                                    span.navigation__text Мои работы
+                            li.navigation__item
+                                a.navigation__link(href="about.html")
+                                    span.navigation__text Обо мне
+                            li.navigation__item
+                                a.navigation__link(href="blog.html")
+                                    span.navigation__text Блог
+                            li.navigation__item
+                                a.navigation__link(href="index.html")
+                                    span.navigation__text Авторизация
+                    ul.social
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey.social__image_mobile
+                                        use(xlink:href="assets/images/svg/sprite.svg#vk")
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey.social__image_mobile
+                                        use(xlink:href="assets/images/svg/sprite.svg#github")
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey.social__image_mobile
+                                        use(xlink:href="assets/images/svg/sprite.svg#in")
+
+
+                div.footer__column
+                        span.main-text.white Skype: +79060761095
+                        span.main-text.white pisarev_dmitry@mail.ru
+                        span.main-text.white +7 906 076 10 95
+                        span.main-text.white г.Москва Новочеркасский б-р, д.46
+                div.footer__signature
+                    include ../common/signature

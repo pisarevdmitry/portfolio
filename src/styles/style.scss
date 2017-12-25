@@ -1,0 +1,187 @@
+@import "variables";
+@import "mixins";
+@import "font";
+@import "normalize";
+@import "layout/intro";
+@import "layout/user";
+@import "layout/social";
+@import "layout/autherization";
+@import "layout/form";
+@import "layout/signarure";
+@import "layout/hero";
+@import "layout/blog";
+@import "layout/button";
+@import "layout/footer";
+@import "layout/navigation";
+@import "layout/scroll";
+@import "layout/about";
+@import "layout/map";
+@import "layout/slider";
+@import "layout/reviews";
+@import "layout/skills";
+*{
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+  @include ipad{
+    font-size: 14px;
+  }
+  @include iphone{
+    font-size: 12px;
+  }
+}
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.42;
+
+
+  }
+.wrapper{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.title{
+  padding: rem(15) 0;
+  font: rem(63) sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+  @include iphone{
+    font-size: rem(50);
+  }
+}
+.sub-title{
+  padding-bottom: rem(40);
+  font: rem(35) sansus-webissimo-regular-webfont;
+  text-transform: uppercase;
+  @include ipad{
+    padding-bottom: rem(20);
+  }
+  @include iphone{
+    font-size: rem(30)
+  }
+}
+.main-text{
+  font: rem(16)/rem(24) Roboto-Regular;
+}
+.accent{
+   font-family: Roboto-Medium;
+   color: $blue;
+   text-transform: uppercase;
+ }
+.white{
+  color: white;
+}
+.line{
+  position: relative;
+  &:after{
+    content: "";
+    width: 89px;
+    height: 4px;
+    background: $gray;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+};
+.section{
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+}
+.bg{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  @include ipad{
+    top: 38%;
+  }
+  transform: translate(-50%,-50%) ;
+  &_works{
+    transform: translate(-50%,-45%) rotate(-168deg) ;
+    width: rem(210);
+    height:rem(140);
+    @include ipad{
+      transform: translate(-58%,-45%) rotate(-168deg)
+    }
+    @include iphone{
+      width: rem(190);
+      height: rem(120);
+    }
+  }
+  &_about{
+    @include iphone{
+      display: none;
+    }
+  }
+  &_review{
+    transform: translate(-50%,-50%) rotate(28deg);
+    width: rem(173);
+    height: rem(202);
+    @include ipad{
+      transform: translate(-59%,-42%) rotate(28deg);
+    }
+    @include iphone{
+      width: rem(120);
+      height: rem(150);
+    }
+  }
+  &_intro{
+    width: rem(459);
+    height:rem(270);
+    z-index: -1;
+    @include ipad{
+      width: rem(310);
+      height: rem(300);
+    }
+    @include iphone{
+      width: rem(360);
+      height: rem(360);
+    }
+  }
+  &_blog{
+    top: 42%;
+    @include ipad{
+      top: 32%;
+    }
+    @include ipad{
+      top: 33%;
+    }
+  }
+}
+.bg__image{
+  width: 100%;
+  height: 100%;
+  fill: white;
+  stroke: white;
+  opacity: .15;
+  &_blue{
+    width: 100%;
+    height: 100%;
+    fill: $blue;
+    stroke: $blue;
+    opacity: .10;
+  }
+  &_intro{
+    opacity: .07;
+  }
+}
+.fixed{
+  height: 100vh;
+  overflow: hidden;
+}
