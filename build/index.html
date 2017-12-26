@@ -8,14 +8,21 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCovicKPAVEwcNElLO4g97h58nG0sVnoQI&amp;"></script>
     <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <section class="section intro">
-        <header class="intro__header"><a class="btn btn_autorization" href=""><span class="btn__text">Авторизоваться</span></a></header>
+      <section class="section intro" id="hero">
+        <video class="video" autoplay loop muted>
+          <source class="video__source" src="assets/images/video/night.mp4" type="video/mp4">
+        </video>
+        <div class="parallax" id="parallax">
+          <div class="parallax__layer"><img class="parallax__image parallax__image_about" src="assets/images/png/Layer 1.png"></div>
+        </div>
+        <header class="intro__header"><a class="btn btn_autorization" id="btn_autorization" href=""><span class="btn__text">Авторизоваться</span></a></header>
         <main class="main">
-          <div class="main__flip-container">
+          <div class="main__flip-container" id="flip-container">
             <div class="user-preview">
               <div class="user-preview__image"></div>
               <h2 class="user-preview__title">Дмитрий Писарев</h2><span class="user-preview__text">Личный сайт разработчика</span>
@@ -73,7 +80,7 @@
                     <label class="form__label form__label_type_radio" for="no">Не уверен</label>
                   </div>
                 </div>
-                <div class="form__row form__row_buttons"><a class="form__link">Мои работы</a>
+                <div class="form__row form__row_buttons form__row_auth"><a class="form__link" href="my-works.html">Мои работы</a>
                   <input class="form__submit" type="submit" name="submit" value="Войти">
                 </div>
               </form>

@@ -1,0 +1,62 @@
+extends ../template
+
+block variables
+    - var title = 'Добро пожаловать'
+
+block content
+    div.wrapper
+        section.section.intro#hero
+                video.video(autoplay loop muted)
+                    source.video__source(src="assets/images/video/night.mp4" type="video/mp4")
+                .parallax#parallax
+                    .parallax__layer
+                        img.parallax__image.parallax__image_about(src="assets/images/png/Layer 1.png")
+                header.intro__header
+                    a.btn.btn_autorization#btn_autorization(href="")
+                        span.btn__text Авторизоваться
+                main.main
+                    .main__flip-container#flip-container
+                        div.user-preview
+                            div.user-preview__image
+                            h2.user-preview__title Дмитрий Писарев
+                            span.user-preview__text Личный сайт разработчика
+                            include ../common/social
+                            ul.main__nav
+                                li.main__nav-item
+                                    a.main__nav-link(href="my-works.html") Мои работы
+                                li.main__nav-item
+                                    a.main__nav-link(href="about.html") Обо мне
+                                li.main__nav-item
+                                    a.main__nav-link(href="blog.html") Блог
+                        div.autherization.form-container
+                            h2.autherization__title авторизуйтесь
+                            form.form.autherization__form(action="" method="POST")
+                                div.form__row
+                                    label.form__label.form__label_text(for ="name")
+                                        svg.form__image
+                                            use(xlink:href="assets/images/svg/sprite.svg#login")
+                                    input.form__input(type="text" name="name" id="name" placeholder="Логин")
+                                div.form__row
+                                    label.form__label.form__label_text(for ="password")
+                                        svg.form__image
+                                            use(xlink:href="assets/images/svg/sprite.svg#password")
+                                    input.form__input(type="password" name="password" id="password" placeholder="Пароль")
+                                div.form__row
+                                    input.form__input(type="checkbox" name="chekbox" id="checkbox" )
+                                    label.form__label.form__label_type_check(for ="checkbox") Я человек
+                                div.form__row.form__row_radio
+                                    div.form__radio_title Вы точно не робот?
+                                    div.form__column
+                                        input.form__input(type="radio" name="radio" id="yes")
+                                        label.form__label.form__label_type_radio(for ="yes") Да
+                                    div.form__column
+                                        input.form__input(type="radio" name="radio" id="no")
+                                        label.form__label.form__label_type_radio(for ="no") Не уверен
+                                div.form__row.form__row_buttons.form__row_auth
+                                    a.form__link(href="my-works.html") Мои работы
+                                    input.form__submit(type='submit' name="submit" value="Войти")
+
+
+                footer.intro__footer
+                    include ../common/signature
+

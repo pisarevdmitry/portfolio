@@ -4,7 +4,8 @@ const svgSprite = require('gulp-svg-sprite');
 const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
-
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
@@ -16,7 +17,7 @@ const del = require('del');
 
 const browserSync = require('browser-sync').create();
 
-const gulpWebpack = require('gulp-webpack');
+const gulpWebpack = require('webpack-stream');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 //конфиг сборщика свг
@@ -121,8 +122,15 @@ function clean() {
 // webpack
 function scripts() {
     return gulp.src('src/scripts/main.js')
-        .pipe(gulpWebpack(webpackConfig, webpack)) 
-        .pipe(gulp.dest(paths.scripts.dest));
+        .pipe(plumber(function (error) {
+            gutil.log(error.message);
+            this.emit('end');
+        }))
+        .pipe(gulpWebpack(webpackConfig, webpack))
+        .pipe(babel())
+        .pipe(gulp.dest(paths.scripts.dest))
+
+
 }
 
 // галповский вотчер
@@ -160,6 +168,7 @@ exports.clean = clean;
 exports.images = images;
 exports.fonts = fonts;
 exports.svgBuild = svgBuild;
+exports.watch = scripts;
 gulp.task('default', gulp.series(
     clean,
     gulp.parallel(styles, templates, images, scripts,fonts),

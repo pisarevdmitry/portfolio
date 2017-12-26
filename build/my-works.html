@@ -8,11 +8,18 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCovicKPAVEwcNElLO4g97h58nG0sVnoQI&amp;"></script>
     <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <section class="hero">
+      <section class="hero" id="hero">
+        <video class="video" autoplay loop muted>
+          <source class="video__source" src="assets/images/video/night.mp4" type="video/mp4">
+        </video>
+        <div class="parallax" id="parallax">
+          <div class="parallax__layer"><img class="parallax__image parallax__image_about" src="assets/images/png/Layer 1.png"></div>
+        </div>
         <div class="hero__top-line">
           <ul class="social">
             <li class="social__item"><a class="social__link" href="#">
@@ -27,7 +34,7 @@
                 <svg class="social__image">
                   <use xlink:href="assets/images/svg/sprite.svg#in"></use>
                 </svg></a></li>
-          </ul><a class="hamburger-menu" href="#">
+          </ul><a class="hamburger-menu" id="hamburger-menu" href="#">
             <div class="hamburger-menu-bars"></div></a>
         </div>
         <div class="hero__content"><span class="bg bg_intro">
@@ -96,7 +103,7 @@
             </svg></span></div>
         <ul class="reviewers">
           <li class="reviewer">
-            <div class="reviewer__image"><img class="reviewer__picture" src="assets/images/jpg/reviewer1.jpg"></div>
+            <div class="reviewer__image"><img class="reviewer__picture reviewer__picture_big" src="assets/images/jpg/reviewer1.jpg"></div>
             <div class="reviewer__text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</div>
             <div class="reviewer__signature"><span class="reviewer__name">Ковальчук Дмитрий</span><span>— основатель Loftschool</span></div>
           </li>
@@ -132,9 +139,9 @@
         <footer class="footer footer_absolute">
           <div class="footer__column"><span class="main-text white">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.</span></div>
           <div class="footer__column">
-            <nav class="navigation">
+            <nav class="navigation" id="navigation">
               <ul class="navigation__list">
-                <li class="navigation__item"><a class="navigation__link" href="my-works.html"><span class="navigation__text">Мои работы</span></a></li>
+                <li class="navigation__item"><a class="navigation__link navigation__link_current" href="my-works.html"><span class="navigation__text">Мои работы</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="about.html"><span class="navigation__text">Обо мне</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="blog.html"><span class="navigation__text">Блог</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="index.html"><span class="navigation__text">Авторизация</span></a></li>
@@ -142,15 +149,15 @@
             </nav>
             <ul class="social">
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#vk"></use>
                   </svg></a></li>
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#github"></use>
                   </svg></a></li>
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#in"></use>
                   </svg></a></li>
             </ul>

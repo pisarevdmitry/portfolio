@@ -1,0 +1,93 @@
+.intro{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.intro__header{
+  padding-top: rem(15);
+  display: flex;
+  justify-content: flex-end;
+  padding-right: rem(40);
+  @include iphone{
+    justify-content: center;
+    padding-right: 0;
+  }
+
+}
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.intro__footer{
+  display: flex;
+  justify-content: center;
+  padding-bottom: rem(40);
+}
+.main__nav{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex: 1;
+  @include ipad{
+    margin-top: 57px;
+  }
+  @include iphone{
+    margin-top: 64px;
+  }
+}
+.main__nav-link{
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__nav-item{
+  font: rem(16) Roboto-Medium;
+  color: white;
+  cursor: pointer;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  border-right: 2px solid #7296d2;
+  &:first-child{
+    width: 41%;
+  }
+  &:nth-child(2){
+  width: 33%;
+}
+  &:last-child{
+    border-right: none;
+    flex: 1;
+  }
+  &:hover{
+    background: $darkBlue;
+  }
+}
+.main__flip-container{
+   width: 380px;
+   height: 395px;
+   background: rgba(38,31,41,.5);
+   transform-style: preserve-3d;
+   position: relative;
+   transition: 1s;
+  @include iphone{
+    width: 300px;
+    height: 380px;
+  }
+  }
+.reverse{
+  transform: rotateY(180deg);
+}
+
