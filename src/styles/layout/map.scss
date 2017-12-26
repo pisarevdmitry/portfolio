@@ -1,10 +1,15 @@
 .map{
   position: relative;
-  background: green;
+  height: 1px;
   min-height: 120vh;
   @include ipad{
     min-height: 140vh;
   }
+}
+.google-map{
+  width: 100%;
+  height: 100%;
+
 }
 .contacts{
   padding: 10px;
