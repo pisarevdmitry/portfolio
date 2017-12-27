@@ -442,7 +442,6 @@
         var container = document.getElementById("preloader");
         var text = document.getElementById("text");
         var inner = document.getElementById("inner");
-        console.log(inner);
         var dash = 0;
         var persent = 0;
         text.innerHTML = 1;

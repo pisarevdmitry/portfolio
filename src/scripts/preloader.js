@@ -2,7 +2,6 @@ export default () => {
     let container =document.getElementById("preloader");
     let text = document.getElementById("text");
     let inner =document.getElementById("inner");
-    console.log(inner);
     let dash =0;
     let persent =0;
     text.innerHTML = 1;
