@@ -104,9 +104,9 @@ function styles() {
             this.emit('end');
         }))
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass(/*{outputStyle: 'compressed'}*/))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 5 versions'],
             cascade: false
             }))
         .pipe(sourcemaps.write())

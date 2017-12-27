@@ -34,6 +34,7 @@
   flex-basis: rem(280);
   margin-right: rem(120);
   z-index: 5;
+  transition: transform .7s linear;
   &:after{
     @include ipad{
       content: "";
@@ -46,6 +47,7 @@
       right:0;
       transform:translateX(40%);
       box-shadow: 4px 0 10px rgba(0,0,0,.2);
+      cursor: pointer;
     }
   }
   @include ipad{
@@ -59,6 +61,12 @@
     background: $darkBlue;
     box-shadow: 4px 0 10px rgba(0,0,0,.2);
 
+  }
+  @include iphone{
+    width: 70%;
+  }
+  &_opened{
+    transform: translateX(0);
   }
 }
 .articles__text{

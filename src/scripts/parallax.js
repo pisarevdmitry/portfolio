@@ -12,7 +12,7 @@ export default ( section,container,triger) => {
    const moveParallax = (e) => {
         let initialX =window.innerWidth/2 - e.pageX;
         let initialY = window.innerHeight/2 -e.pageY;
-        layer.style.transform = `translate3d(${initialX * 0.08}px, ${initialY *0.08}px, 0)`
+        layer.style.transform = `translate3d(${initialX * 0.03}px, ${initialY *0.03}px, 0)`
     };
    if(triger ==="mouse") {
     section.addEventListener("mousemove",moveParallax);

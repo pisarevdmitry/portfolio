@@ -40,7 +40,6 @@ export default (button,menu) =>{
         })
     };
     button.addEventListener("click",() =>{
-        console.log("test");
         if(flag){
             open()
         }
