@@ -30,6 +30,7 @@ else if(url.indexOf("/blog.html") > -1){
     sidebar(blogNav);
     fixedMenu(button,nav);
     parallax(hero, container);
+
 }
 else {
     fixedMenu(button, nav);

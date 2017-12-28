@@ -1,12 +1,18 @@
 .blog{
   background-color:#faf8f0;
   margin-top: rem(-100);
+  position: relative;
+  padding-bottom: rem(90);
+  @include ipad{
+    position: static;
+  }
   }
 .blog__content{
   display: flex;
   flex-direction: row;
-  flex-basis: 80%;
+  width: 90%;
   margin: 0 auto;
+ justify-content: flex-end;
   @include tablet_1200{
     flex-basis: 90%;
   }
@@ -15,6 +21,7 @@
   position: relative;
   width: 66%;
   order: 2;
+  padding-left: 7%;
   @include ipad{
     width: 100%;
     padding: 0 15px;
@@ -31,10 +38,16 @@
   }
 }
 .blog__nav{
+  width: 33%;
   flex-basis: rem(280);
   margin-right: rem(120);
   z-index: 5;
   transition: transform .7s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 7%;
+
   &:after{
     @include ipad{
       content: "";
@@ -65,34 +78,65 @@
   @include iphone{
     width: 70%;
   }
+  &_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    &:after {
+      @include ipad {
+        content: "";
+        width: 24px;
+        height: 41px;
+        border-radius: 50%;
+        position: absolute;
+        background: $darkBlue;
+        top: 50%;
+        right: 0;
+        transform: translate(40%,-50%);
+        box-shadow: 4px 0 10px rgba(0, 0, 0, .2);
+        cursor: pointer;
+      }
+
+    }
+  }
   &_opened{
     transform: translateX(0);
   }
 }
 .articles__text{
   font: 16px/24px Roboto-Regular;
+  position: relative;
+  z-index: -1;
 
 }
 .articles-list{
   @include ipad{
     position: relative;
-    top: 120vh;
+    top:161vh;
+    transform: translateY(-50%);
     z-index: 5;
   }
-
+  &_fixed{
+    @include ipad{
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  }
 }
-.articles-list__item{
+.articles-list__item {
   margin-bottom: rem(20);
-  padding:  rem(10) ;
+  padding: rem(10);
   text-align: right;
-  @include ipad{
-    color:white;
+  cursor: pointer;
+  @include ipad {
+    color: white;
     opacity: .7;
   }
-  &_active{
+  &_active {
     color: $blue;
     border-right: 2px solid $blue;
-    @include ipad{
+    @include ipad {
       opacity: 1;
       color: white;
       border-right: 0;

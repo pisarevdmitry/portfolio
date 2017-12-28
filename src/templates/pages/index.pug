@@ -42,14 +42,14 @@ block content
                                     label.form__label.form__label_text(for ="name")
                                         svg.form__image
                                             use(xlink:href="assets/images/svg/sprite.svg#login")
-                                    input.form__input(type="text" name="name" id="name" placeholder="Логин")
+                                    input.form__input(type="text" name="name" id="name" placeholder="Логин" required)
                                 div.form__row
                                     label.form__label.form__label_text(for ="password")
                                         svg.form__image
                                             use(xlink:href="assets/images/svg/sprite.svg#password")
-                                    input.form__input(type="password" name="password" id="password" placeholder="Пароль")
+                                    input.form__input(type="password" name="password" id="password" placeholder="Пароль" required)
                                 div.form__row
-                                    input.form__input(type="checkbox" name="chekbox" id="checkbox" )
+                                    input.form__input(type="checkbox" name="chekbox" id="checkbox" required)
                                     label.form__label.form__label_type_check(for ="checkbox") Я человек
                                 div.form__row.form__row_radio
                                     div.form__radio_title Вы точно не робот?
