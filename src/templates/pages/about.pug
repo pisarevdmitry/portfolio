@@ -1,0 +1,201 @@
+extends ../template
+
+block variables
+    - var title = 'Обо мне'
+    - var skills=[['Html5', 'css3', 'JavaScript'],['Html4', 'css3', 'JavaScript'],['Html3', 'css2', 'JavaScript']]
+
+block content
+    div.wrapper
+        section.hero.hero_about#hero
+
+                .parallax#parallax
+                    .parallax__layer
+                        img.parallax__image.parallax__image_about(src="assets/images/png/Layer 1.png")
+                div.hero__top-line
+                    include ../common/social
+                    a.hamburger-menu#hamburger-menu(href="#")
+                        div.hamburger-menu-bars
+                div.hero__content
+                    span.bg.bg_intro
+                        svg.bg__image.bg__image_intro
+                            use(xlink:href="assets/images/svg/sprite.svg#stars1")
+                    div.hero__image
+                    span.hero__title.white Писарев Дмитрий
+                    span.main-text.white Личный сайт веб-разработчика
+                a.scroll.scroll__down.scroll__down_about
+                    svg.scroll__image
+                        use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_down")
+                svg.hero__bg.hero__bg_desktop(xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 1200 108" preserveAspectRatio="none")
+                    polygon.hero__bg_left(points="0,0 0,108 601,108 601,105")
+                    polygon.hero__bg_right(points="1200,0 1200,108 599,108 599,105")
+
+
+        section.about
+            .about__left
+                .about__left-title
+                    .about-title.title Обо&nbspмне
+                        span.bg.bg_works.bg_about
+                            svg.bg__image_blue
+                                use(xlink:href="assets/images/svg/sprite.svg#stars2")
+                .about__left-content
+                    .user-description
+                        .user-description__image
+
+                        .user-description__title
+                            .sub-title.line Кто я
+                        .user-description__text.text-content
+                            p.main-text Я веб разработчик из Москвы. Мне 30 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                            p.main-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
+            .about__right
+                .about__right-title
+                    .sub-title.line Чем я могу быть вам полезен
+                .about__right-text.text-content
+                    p.main-text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                .about__right-content
+                    ul.skills-list
+                        li.skills-list__item
+                            .skills-row
+                                .skills-row__title Frontend
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120" preserveAspectRatio="none")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Html5
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Css3
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title JavaScript & Jquery
+                        li.skills-list__item
+                            .skills-row
+                                .skills-row__title BackEnd
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title PHP
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title MySQL
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Node.js & npm
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Mongo.db
+                        li.skills-list__item
+                            .skills-row
+                                .skills-row__title WorkFlow
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Git
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Gulp
+                                    li.skills-row__item
+                                        .skill
+                                            svg.skill__circle(viewBox="0 0 120 120")
+                                                circle.skill__circle-first(r="45" cx="50%" cy="50%" fill="none")
+                                                circle.skill__circle-second(r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)")
+                                            span.skill__title Webpack
+        section.map
+            .google-map#map
+            .map__contacts
+                .contacts
+                    .contacts__title
+                        .sub-title.line Контакты
+                    ul.contacts__list
+                            li.contacts__item
+                               .contacts__icon
+                                   svg.contacts__image
+                                       use(xlink:href="assets/images/svg/sprite.svg#skype_n")
+                               .contacts__content
+                                   span.main-text.contacts__text +79060761095
+                            li.contacts__item
+                               .contacts__icon
+                                   svg.contacts__image
+                                       use(xlink:href="assets/images/svg/sprite.svg#phone_n")
+                               .contacts__content
+                                   span.main-text.contacts__text +79060761095
+                            li.contacts__item
+                                .contacts__icon
+                                    svg.contacts__image
+                                        use(xlink:href="assets/images/svg/sprite.svg#envelope_n")
+                                .contacts__content
+                                    span.main-text.contacts__text pisarev_dmitry@mail.ru
+                            li.contacts__item
+                                .contacts__icon
+                                    svg.contacts__image
+                                        use(xlink:href="assets/images/svg/sprite.svg#map_n")
+                                .contacts__content
+                                    span.main-text.contacts__text г.Москва
+            footer.footer.footer_absolute
+
+                div.footer__column
+                        span.main-text.white Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+                div.footer__column
+                        nav.navigation#navigation
+                            ul.navigation__list
+                                li.navigation__item
+                                    a.navigation__link(href="my-works.html")
+                                        span.navigation__text Мои работы
+                                li.navigation__item
+                                    a.navigation__link.navigation__link_current(href="about.html")
+                                        span.navigation__text Обо мне
+                                li.navigation__item
+                                    a.navigation__link(href="blog.html")
+                                        span.navigation__text Блог
+                                li.navigation__item
+                                    a.navigation__link(href="index.html")
+                                        span.navigation__text Авторизация
+                        ul.social
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey
+                                        use(xlink:href="assets/images/svg/sprite.svg#vk")
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey
+                                        use(xlink:href="assets/images/svg/sprite.svg#github")
+                            li.social__item
+                                a.social__link(href="#")
+                                    svg.social__image.social__image_grey
+                                        use(xlink:href="assets/images/svg/sprite.svg#in")
+
+                div.footer__column
+                        span.main-text.white Skype: +79060761095
+                        span.main-text.white pisarev_dmitry@mail.ru
+                        span.main-text.white +7 906 076 10 95
+                        span.main-text.white г.Москва
+                div.footer__signature
+                    include ../common/signature
+
+
+

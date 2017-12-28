@@ -8,14 +8,30 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCovicKPAVEwcNElLO4g97h58nG0sVnoQI&amp;"></script>
     <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
+    <div class="preloader" id="preloader">
+      <div class="spinner">
+        <svg class="spinner__image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80.586px" height="80.73px" viewBox="0 0 48.586 75.73" enable-background="new 0 0 52.586 63.73" xml:space="preserve">
+          <text id="text" transform="matrix(1 0 0 1 5.772 45.0889)" font-family="'ArialMT'" font-size="24">0</text>
+          <circle id="inner" fill="none" stroke="#000000" stroke-width="2.5864" stroke-miterlimit="10" cx="26.293" cy="37.438" r="25" transform="rotate(-90 25 38)"></circle>
+          <circle id="outer" cx="26.293" cy="4.5" r="4.5"></circle>
+        </svg>
+      </div>
+    </div>
     <div class="wrapper">
-      <section class="section intro">
-        <header class="intro__header"><a class="btn btn_autorization" href=""><span class="btn__text">Авторизоваться</span></a></header>
+      <section class="section intro" id="hero">
+        <video class="video" autoplay loop muted>
+          <source class="video__source" src="assets/images/video/night.mp4" type="video/mp4">
+        </video>
+        <div class="parallax" id="parallax">
+          <div class="parallax__layer"><img class="parallax__image parallax__image_about" src="assets/images/png/Layer 1.png"></div>
+        </div>
+        <header class="intro__header"><a class="btn btn_autorization" id="btn_autorization" href=""><span class="btn__text">Авторизоваться</span></a></header>
         <main class="main">
-          <div class="main__flip-container">
+          <div class="main__flip-container" id="flip-container">
             <div class="user-preview">
               <div class="user-preview__image"></div>
               <h2 class="user-preview__title">Дмитрий Писарев</h2><span class="user-preview__text">Личный сайт разработчика</span>
@@ -48,7 +64,7 @@
                       <use xlink:href="assets/images/svg/sprite.svg#login"></use>
                     </svg>
                   </label>
-                  <input class="form__input" type="text" name="name" id="name" placeholder="Логин">
+                  <input class="form__input" type="text" name="name" id="name" placeholder="Логин" required>
                 </div>
                 <div class="form__row">
                   <label class="form__label form__label_text" for="password">
@@ -56,10 +72,10 @@
                       <use xlink:href="assets/images/svg/sprite.svg#password"></use>
                     </svg>
                   </label>
-                  <input class="form__input" type="password" name="password" id="password" placeholder="Пароль">
+                  <input class="form__input" type="password" name="password" id="password" placeholder="Пароль" required>
                 </div>
                 <div class="form__row">
-                  <input class="form__input" type="checkbox" name="chekbox" id="checkbox">
+                  <input class="form__input" type="checkbox" name="chekbox" id="checkbox" required>
                   <label class="form__label form__label_type_check" for="checkbox">Я человек</label>
                 </div>
                 <div class="form__row form__row_radio">
@@ -73,7 +89,7 @@
                     <label class="form__label form__label_type_radio" for="no">Не уверен</label>
                   </div>
                 </div>
-                <div class="form__row form__row_buttons"><a class="form__link">Мои работы</a>
+                <div class="form__row form__row_buttons form__row_auth"><a class="form__link" href="my-works.html">Мои работы</a>
                   <input class="form__submit" type="submit" name="submit" value="Войти">
                 </div>
               </form>
