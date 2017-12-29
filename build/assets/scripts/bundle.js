@@ -473,9 +473,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                 if (trans_wait.complete) {
                     if (flag) {
-                        yield change_head(slide_right);
-                        slide_right.style.transform = `translateY(-${height})`;
+
+                        slide_right.style.top = `translateY(-${height})`;
                         slide_left.style.transform = `translateY(${height})`;
+                        yield change_head(slide_right, flag);
                     } else {
 
                         slide_right.style.transform = `translateY(${height})`;
@@ -500,7 +501,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         const tech = document.querySelector('.slider__tech');
         const link = document.querySelector('.slider__link');
 
-        slide_move(true);
+        slide_right.appendChild(slide_right.children[0]);
+        slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
+        slide_right.children[0].cloneNode(true);
+        slide_left.lastChild.cloneNode(true);
+
+        //slide_move(true);
+        console.log(slide_right.style.transform);
 
         control_next.addEventListener('click', e => {
             e.preventDefault();
@@ -515,21 +522,26 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         function append_ins(flag = false) {
             if (flag) {
                 slide_right.appendChild(slide_right.children[0]);
-                slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
                 slide_right.children[0].cloneNode(true);
-                slide_left.lastChild.cloneNode(true);
-            } else {
                 slide_left.appendChild(slide_left.children[0]);
-                slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[0]);
                 slide_left.children[0].cloneNode(true);
+            } else {
+                slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
+                slide_left.lastChild.cloneNode(true);
+                slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[0]);
                 slide_right.lastChild.cloneNode(true);
             }
             const trans = { complete: true };
             return trans;
         }
 
-        function change_head(elem) {
-            let current = elem.lastElementChild.firstElementChild.firstElementChild;
+        function change_head(elem, flag) {
+            let current;
+            if (flag) {
+                current = elem.lastElementChild.firstElementChild.firstElementChild;
+            } else {
+                current = elem.children[1].firstElementChild.firstElementChild;
+            }
             let src = current.getAttribute("src");
             let name = current.getAttribute("data-title");
             let tecnologies = current.getAttribute("data-tech");
