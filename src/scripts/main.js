@@ -3,6 +3,7 @@ import  parallax from './parallax';
 import  fixedMenu from './menu'
 import initMap from "./map"
 import preloader from "./preloader"
+import slider from "./slider"
 import sidebar from './sidebar'
 let flip =document.querySelector('#flip-container');
 let autorization = document.querySelector("#btn_autorization");
@@ -35,6 +36,9 @@ else if(url.indexOf("/blog.html") > -1){
 else {
     fixedMenu(button, nav);
     parallax(hero,container);
+    slider()
+
+
 
 }
 

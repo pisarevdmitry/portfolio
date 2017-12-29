@@ -49,8 +49,11 @@ export default (button,menu) =>{
         flag = flag ? false : true
     });
     current[0].addEventListener("click",(e) =>{
-        e.preventDefault();
-        close()
-        flag = flag ? false : true
+        if(menu.classList.contains("navigation_fixed")){
+            e.preventDefault();
+            close();
+            flag = flag ? false : true
+        }
+
     })
 }

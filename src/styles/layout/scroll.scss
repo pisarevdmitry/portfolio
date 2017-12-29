@@ -26,7 +26,17 @@
     opacity: 1;
     position: absolute;
     top: 50%;
-    left:50%;
+
+    &_next{
+      left: 25%;
+      transform: translate(-25%,-50%);
+      transform-origin: 100% 100%;
+    }
+    &_prev{
+      right: 25%;
+      transform: translate(25%,-50%);
+      transform-origin: 0 165%;
+    }
     &:hover{
       transform: scale(1.5);
     }

@@ -12,6 +12,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require("gulp-autoprefixer");
 const plumber = require('gulp-plumber');
 const  gutil = require('gulp-util');
+require("babel-polyfill");
 
 const del = require('del');
 

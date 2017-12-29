@@ -1,4 +1,4 @@
-'use strict';
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 /******/(function (modules) {
     // webpackBootstrap
@@ -90,17 +90,18 @@
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_2__menu__ = __webpack_require__(3);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__map__ = __webpack_require__(4);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__preloader__ = __webpack_require__(5);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__sidebar__ = __webpack_require__(6);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__slider__ = __webpack_require__(6);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__sidebar__ = __webpack_require__(7);
 
-    var flip = document.querySelector('#flip-container');
-    var autorization = document.querySelector("#btn_autorization");
-    var button = document.getElementById("hamburger-menu");
-    var nav = document.getElementById("navigation");
-    var slash = location.href.lastIndexOf("/");
-    var container = document.getElementById("parallax");
-    var hero = document.getElementById("hero");
-    var blogNav = document.getElementById("blogNav");
-    var url = location.href.substr(slash);
+    let flip = document.querySelector('#flip-container');
+    let autorization = document.querySelector("#btn_autorization");
+    let button = document.getElementById("hamburger-menu");
+    let nav = document.getElementById("navigation");
+    let slash = location.href.lastIndexOf("/");
+    let container = document.getElementById("parallax");
+    let hero = document.getElementById("hero");
+    let blogNav = document.getElementById("blogNav");
+    let url = location.href.substr(slash);
 
     //////
     if (url.indexOf("/index.html") > -1 || url === "/") {
@@ -112,12 +113,13 @@
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_3__map__["a" /* default */])();
     } else if (url.indexOf("/blog.html") > -1) {
-        Object(__WEBPACK_IMPORTED_MODULE_5__sidebar__["a" /* default */])(blogNav);
+        Object(__WEBPACK_IMPORTED_MODULE_6__sidebar__["a" /* default */])(blogNav);
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
     } else {
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
+        Object(__WEBPACK_IMPORTED_MODULE_5__slider__["a" /* default */])();
     }
 
     /***/
@@ -127,9 +129,9 @@
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = function (button, block) {
+    __webpack_exports__["a"] = (button, block) => {
 
-        button.addEventListener("click", function (e) {
+        button.addEventListener("click", e => {
             e.preventDefault();
             button.style.cssText = "opacity:0;cursor:default";
             block.classList.add("reverse");
@@ -143,26 +145,26 @@
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = function (section, container, triger) {
-        var sectionHeight = section.offsetHeight;
-        var layer = container.firstElementChild;
+    __webpack_exports__["a"] = (section, container, triger) => {
+        let sectionHeight = section.offsetHeight;
+        let layer = container.firstElementChild;
 
-        var scrollParallax = function scrollParallax(e) {
-            var marginTop = window.pageYOffset;
+        const scrollParallax = e => {
+            let marginTop = window.pageYOffset;
             if (marginTop <= sectionHeight) {
-                layer.style.transform = 'translate3d(0,-' + marginTop * 0.11 + 'px , 0)';
+                layer.style.transform = `translate3d(0,-${marginTop * 0.11}px , 0)`;
             }
         };
-        var moveParallax = function moveParallax(e) {
-            var initialX = window.innerWidth / 2 - e.pageX;
-            var initialY = window.innerHeight / 2 - e.pageY;
-            layer.style.transform = 'translate3d(' + initialX * 0.03 + 'px, ' + initialY * 0.03 + 'px, 0)';
+        const moveParallax = e => {
+            let initialX = window.innerWidth / 2 - e.pageX;
+            let initialY = window.innerHeight / 2 - e.pageY;
+            layer.style.transform = `translate3d(${initialX * 0.03}px, ${initialY * 0.03}px, 0)`;
         };
         if (triger === "mouse") {
             section.addEventListener("mousemove", moveParallax);
         } else {
             document.addEventListener("scroll", scrollParallax);
-            document.addEventListener("resize", function () {
+            document.addEventListener("resize", () => {
                 sectionHeight = section.offsetHeight;
             });
         }
@@ -176,54 +178,45 @@
     "use strict";
 
     /* harmony default export */
-    __webpack_exports__["a"] = function (button, menu) {
-        var flag = true;
-        var menuList = menu.getElementsByTagName("li");
-        var current = menu.getElementsByClassName("navigation__link_current");
-        var open = function open() {
-            new Promise(function (resolve) {
+    __webpack_exports__["a"] = (button, menu) => {
+        let flag = true;
+        let menuList = menu.getElementsByTagName("li");
+        let current = menu.getElementsByClassName("navigation__link_current");
+        const open = () => {
+            new Promise(resolve => {
                 button.firstElementChild.classList.add("hamburger-menu-bars_closed");
                 menu.classList.add("navigation_fixed");
                 menu.style.opacity = 1;
                 document.body.classList.add("fixed");
                 resolve();
-            }).then(setTimeout(function () {
-                var _loop = function _loop(i) {
-                    setTimeout(function () {
+            }).then(setTimeout(() => {
+                for (let i = 0; i < menuList.length; i++) {
+                    setTimeout(() => {
                         menuList[i].style.left = 0;
                     }, i * 140);
-                };
-
-                for (var i = 0; i < menuList.length; i++) {
-                    _loop(i);
                 }
             }, 900));
         };
 
-        var close = function close() {
-            new Promise(function (resolve) {
+        const close = () => {
+            new Promise(resolve => {
                 document.body.classList.remove("fixed");
-
-                var _loop2 = function _loop2(i) {
-                    setTimeout(function () {
+                for (let i = 0; i < menuList.length; i++) {
+                    setTimeout(() => {
                         menuList[i].style.left = "-100%";
                     }, i * 110);
-                };
-
-                for (var i = 0; i < menuList.length; i++) {
-                    _loop2(i);
                 }
                 resolve();
-            }).then(function () {
+            }).then(() => {
                 menu.style.opacity = 0;
                 button.firstElementChild.classList.remove("hamburger-menu-bars_closed");
-                setTimeout(function () {
+                setTimeout(() => {
                     menu.classList.remove("navigation_fixed");
                     menu.style = "";
                 }, 900);
             });
         };
-        button.addEventListener("click", function () {
+        button.addEventListener("click", () => {
             if (flag) {
                 open();
             } else {
@@ -231,10 +224,12 @@
             }
             flag = flag ? false : true;
         });
-        current[0].addEventListener("click", function (e) {
-            e.preventDefault();
-            close();
-            flag = flag ? false : true;
+        current[0].addEventListener("click", e => {
+            if (menu.classList.contains("navigation_fixed")) {
+                e.preventDefault();
+                close();
+                flag = flag ? false : true;
+            }
         });
     };
 
@@ -245,9 +240,9 @@
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = function () {
-        var map = void 0;
-        var screenWidth = screen.width;
+    __webpack_exports__["a"] = () => {
+        let map;
+        let screenWidth = screen.width;
         map = new google.maps.Map(document.getElementById("map"), {
             center: {
                 lat: 55.64566662,
@@ -402,7 +397,7 @@
                 }]
             }]
         });
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position: {
                 lat: 55.64610556,
                 lng: 37.73828655
@@ -415,7 +410,7 @@
             }
 
         });
-        var setMap = function setMap() {
+        const setMap = () => {
             if (screenWidth > 780) {
                 map.setCenter({ lat: 55.64566662, lng: 37.7236551 });
             } else if (screenWidth <= 780 && screenWidth > 560) {
@@ -425,7 +420,7 @@
             }
         };
         setMap();
-        window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", () => {
             screenWidth = screen.width;
             setMap();
         });
@@ -438,25 +433,25 @@
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = function () {
-        var container = document.getElementById("preloader");
-        var text = document.getElementById("text");
-        var inner = document.getElementById("inner");
-        var dash = 0;
-        var persent = 0;
+    __webpack_exports__["a"] = () => {
+        let container = document.getElementById("preloader");
+        let text = document.getElementById("text");
+        let inner = document.getElementById("inner");
+        let dash = 0;
+        let persent = 0;
         text.innerHTML = 1;
         inner.style.strokeDasharray = "1.57 282.6";
         if (sessionStorage.getItem("my-preloader")) {
             container.style.display = "none";
         } else {
             sessionStorage.setItem("my-preloader", true);
-            var timer = setInterval(function () {
+            const timer = setInterval(() => {
                 text.innerHTML = ++persent;
-                inner.style.strokeDasharray = (dash += 1.57) + ' 282.6';
+                inner.style.strokeDasharray = `${dash += 1.57} 282.6`;
                 if (persent === 100) clearInterval(timer);
             }, 70);
 
-            setTimeout(function () {
+            setTimeout(() => {
                 container.style.display = "none";
             }, 7700);
         }
@@ -469,35 +464,120 @@
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = function (container) {
-        var blog = document.getElementById("blog");
-        var articleNavList = container.firstElementChild;
-        var articlesNav = Array.prototype.slice.apply(articleNavList.children);
-        var article = document.getElementById("articles");
-        var articlesList = article.children;
-        for (var i = 0; i < articlesNav.length; i++) {
-            articlesNav[i].setAttribute("data-name", '#article-' + (i + 1));
-        }
-        for (var _i = 0; _i < articlesList.length; _i++) {
-            articlesList[_i].setAttribute("id", '#article-' + (_i + 1));
+    __webpack_exports__["a"] = () => {
+        let slide_move = (() => {
+            var _ref = _asyncToGenerator(function* (flag) {
+                console.log('click');
+
+                const trans_wait = yield append_ins(flag);
+
+                if (trans_wait.complete) {
+                    if (flag) {
+                        yield change_head(slide_right);
+                        slide_right.style.transform = `translateY(-${height})`;
+                        slide_left.style.transform = `translateY(${height})`;
+                    } else {
+
+                        slide_right.style.transform = `translateY(${height})`;
+                        slide_left.style.transform = `translateY(-${height})`;
+                        yield change_head(slide_left);
+                    }
+                }
+            });
+
+            return function slide_move(_x) {
+                return _ref.apply(this, arguments);
+            };
+        })();
+
+        const slide_right = document.querySelector('.slider__slide_next');
+        const slide_left = document.querySelector('.slider__slide_prev');
+        const slide_head = document.querySelector('.slider__head');
+        const height = document.querySelector('.slider__slide').clientHeight;
+        const control_next = document.querySelector('.scroll__slider_next');
+        const control_prev = document.querySelector('.scroll__slider_prev');
+        const text = document.querySelector('.slider__title');
+        const tech = document.querySelector('.slider__tech');
+        const link = document.querySelector('.slider__link');
+
+        slide_move(true);
+
+        control_next.addEventListener('click', e => {
+            e.preventDefault();
+            slide_move(true);
+        });
+
+        control_prev.addEventListener('click', e => {
+            e.preventDefault();
+            slide_move(false);
+        });
+
+        function append_ins(flag = false) {
+            if (flag) {
+                slide_right.appendChild(slide_right.children[0]);
+                slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
+                slide_right.children[0].cloneNode(true);
+                slide_left.lastChild.cloneNode(true);
+            } else {
+                slide_left.appendChild(slide_left.children[0]);
+                slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[0]);
+                slide_left.children[0].cloneNode(true);
+                slide_right.lastChild.cloneNode(true);
+            }
+            const trans = { complete: true };
+            return trans;
         }
 
-        var toggle = function toggle() {
+        function change_head(elem) {
+            let current = elem.lastElementChild.firstElementChild.firstElementChild;
+            let src = current.getAttribute("src");
+            let name = current.getAttribute("data-title");
+            let tecnologies = current.getAttribute("data-tech");
+            let linkSource = current.getAttribute("data-link");
+            slide_head.firstElementChild.firstElementChild.setAttribute("src", src);
+            console.log(linkSource);
+            text.innerHTML = name;
+            tech.innerHTML = tecnologies;
+            link.firstElementChild.setAttribute("href", linkSource);
+        }
+    };
+
+    /***/
+},
+/* 7 */
+/***/function (module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    /* harmony default export */
+    __webpack_exports__["a"] = container => {
+        let blog = document.getElementById("blog");
+        let articleNavList = container.firstElementChild;
+        let articlesNav = Array.prototype.slice.apply(articleNavList.children);
+        let article = document.getElementById("articles");
+        let articlesList = article.children;
+        for (let i = 0; i < articlesNav.length; i++) {
+            articlesNav[i].setAttribute("data-name", `#article-${i + 1}`);
+        }
+        for (let i = 0; i < articlesList.length; i++) {
+            articlesList[i].setAttribute("id", `#article-${i + 1}`);
+        }
+
+        const toggle = () => {
             container.classList.toggle("blog__nav_opened");
         };
-        var sidebarMove = function sidebarMove() {
+        const sidebarMove = () => {
             if (blog.getBoundingClientRect().top <= 10) {
                 container.classList.add("blog__nav_fixed");
                 console.log(window.innerWidth);
                 if (window.innerWidth < 768) {
                     articleNavList.style.top = "50%";
                 }
-                articlesNav.map(function (elem) {
-                    var curentLink = elem.getAttribute("data-name");
-                    var ref = document.getElementById(curentLink);
-                    var rect = ref.getBoundingClientRect();
+                articlesNav.map(elem => {
+                    let curentLink = elem.getAttribute("data-name");
+                    let ref = document.getElementById(curentLink);
+                    let rect = ref.getBoundingClientRect();
                     if (rect.top <= 300 && rect.top + rect.height > 0) {
-                        articlesNav.map(function (elem) {
+                        articlesNav.map(elem => {
                             elem.classList.remove("articles-list__item_active");
                         });
                         elem.classList.add("articles-list__item_active");
@@ -508,18 +588,18 @@
                 articleNavList.style = "";
             }
         };
-        var slideTo = function slideTo(e) {
-            var curentLink = void 0;
+        const slideTo = e => {
+            let curentLink;
             e.stopPropagation();
             if (e.target.classList.contains("articles__text")) {
                 curentLink = e.target.parentNode.getAttribute("data-name");
             } else {
                 curentLink = e.target.getAttribute("data-name");
             }
-            var ref = document.getElementById(curentLink);
+            let ref = document.getElementById(curentLink);
             ref.scrollIntoView({ behavior: "smooth" });
             if (window.innerWidth < 768) {
-                articlesNav.map(function (elem) {
+                articlesNav.map(elem => {
 
                     elem.classList.remove("articles-list__item_active");
                 });

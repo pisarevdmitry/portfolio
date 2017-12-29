@@ -42,34 +42,39 @@ block content
                     .slider__image_big
                         img.slider__picture(src="assets/images/jpg/work-1.png")
                 .slider__slide
-                    ul.slider__slide_prev.slider-list
-                        li.slider-list__item
-                            .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-1.png")
-                        li.slider-list__item
-                            .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-2.png")
-                        li.slider-list__item
-                            .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-3.png")
-                        li.slider__overlay
-                            a.scroll.scroll__slider
-                                svg.scroll__image.scroll__image_slider
-                                    use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_down")
+                    a.scroll.scroll__slider.scroll__slider_next
+                        svg.scroll__image.scroll__image_slider
+                            use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_down")
+                    a.scroll.scroll__slider.scroll__slider_prev
+                        svg.scroll__image.scroll__image_slider
+                            use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_up")
                     ul.slider__slide_next.slider-list
                         li.slider-list__item
                             .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-3.png")
+                                img.slider__picture(src="assets/images/jpg/work-1.png" data-title="Сайт №1" data-tech ="HTML, CSS" data-link ="http://cd35590.tmweb.ru/")
                         li.slider-list__item
                             .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-2.png")
+                                img.slider__picture(src="assets/images/jpg/work-2.png" data-title="Сайт №2" data-tech ="HTML, CSS, JS" data-link ="http://cd35590.tmweb.ru/")
                         li.slider-list__item
                             .slider__image_small
-                                img.slider__picture(src="assets/images/jpg/work-3.png")
-                        .slider__overlay
-                            a.scroll.scroll__slider
-                                svg.scroll__image.scroll__image_slider
-                                    use(xlink:href="assets/images/svg/sprite.svg#portf_arrow_up")
+                                img.slider__picture(src="assets/images/jpg/work-3.png" data-title="Сайт №3" data-tech ="HTML, CSS, JS" data-link ="http://cd35590.tmweb.ru/")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-4.png" data-title="Сайт №4" data-tech ="HTML, CSS" data-link ="http://cd35590.tmweb.ru/")
+                    ul.slider__slide_prev.slider-list
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-1.png" data-title="Сайт №1" data-tech ="HTML, CSS" data-link ="http://cd35590.tmweb.ru/")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-2.png" data-title="Сайт №2" data-tech ="HTML, CSS, JS" data-link ="http://cd35590.tmweb.ru/")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-3.png" data-title="Сайт №3" data-tech ="HTML, CSS, JS" data-link ="http://cd35590.tmweb.ru/")
+                        li.slider-list__item
+                            .slider__image_small
+                                img.slider__picture(src="assets/images/jpg/work-4.png" data-title="Сайт №4" data-tech ="HTML, CSS" data-link ="http://cd35590.tmweb.ru/")
+
 
 
         section.reviews
