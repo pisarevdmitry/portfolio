@@ -36,7 +36,7 @@ else if(url.indexOf("/blog.html") > -1){
 else {
     fixedMenu(button, nav);
     parallax(hero,container);
-    slider()
+    slider(1.3)
 
 
 

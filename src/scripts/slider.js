@@ -1,4 +1,4 @@
-export default () => {
+export default (duration) => {
     const slide_right = document.querySelector('.slider__slide_next');
     const slide_left = document.querySelector('.slider__slide_prev');
     const slide_head = document.querySelector('.slider__head');
@@ -12,12 +12,8 @@ export default () => {
     slide_right.appendChild(slide_right.children[0]);
     slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
     slide_right.children[0].cloneNode(true);
-    slide_left.lastChild.cloneNode(true)
-
-
-    //slide_move(true);
-    console.log(slide_right.style.transform);
-
+    slide_left.lastChild.cloneNode(true);
+ 
     control_next.addEventListener('click', e => {
         e.preventDefault();
         slide_move(true)
@@ -37,13 +33,10 @@ export default () => {
           if (trans_wait.complete) {
               if (flag) {
 
-                  slide_right.style.top = `translateY(-${height})`;
-                  slide_left.style.transform = `translateY(${height})`;
                   await change_head(slide_right,flag);
               } else {
 
-                  slide_right.style.transform = `translateY(${height})`;
-                  slide_left.style.transform = `translateY(-${height})`;
+
                  await change_head(slide_left);
               }
           }
@@ -51,17 +44,40 @@ export default () => {
 
       function append_ins(flag = false) {
           if (flag) {
-              slide_right.appendChild(slide_right.children[0]);
-              slide_right.children[0].cloneNode(true);
-              slide_left.appendChild(slide_left.children[0]);
-              slide_left.children[0].cloneNode(true);
+              slide_right.style.transition = ` transform ${duration}s linear`;
+              slide_right.style.transform = `translateY(-${height}px)`;
+              setTimeout(() =>{
+                  slide_right.appendChild(slide_right.children[0]);
+                  slide_right.style=""
+              },duration * 1000);
+
+              slide_left.insertBefore(slide_left.children[1], slide_left.children[0]);
+              slide_left.style.top= "-"+ height +"px";
+              slide_left.style.transition = ` transform ${duration}s linear`;
+              slide_left.style.transform = `translateY(${height}px)`;
+              setTimeout(() => {
+                  slide_left.appendChild(slide_left.children[1]);
+                  slide_left.style=""
+              },duration *1000)
+
 
           } else {
-              slide_left.insertBefore(slide_left.children[slide_left.children.length-1], slide_left.children[0])
-              slide_left.lastChild.cloneNode(true);
-              slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[0]);
-              slide_right.lastChild.cloneNode(true)
-             }
+              slide_left.style.top= "-"+ height +"px";
+              slide_left.insertBefore(slide_left.children[slide_left.children.length-1], slide_left.children[0]);
+              slide_left.style.transition = ` transform ${duration}s linear`;
+              slide_left.style.transform = `translateY(${height}px)`;
+              setTimeout(() =>{
+                  slide_left.style=""
+              },duration *1000);
+
+              slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[1]);
+              slide_right.style.transition = ` transform ${duration}s linear`;
+              slide_right.style.transform = `translateY(-${height}px)`;
+              setTimeout(()=>{
+                 slide_right.insertBefore(slide_right.children[1], slide_right.children[0]);
+                 slide_right.style=""
+              },duration *1000);
+          }
           const  trans = {complete: true};
           return trans
       }
@@ -69,7 +85,9 @@ export default () => {
       function change_head(elem,flag) {
           let current;
             if(flag){
-                current = elem.lastElementChild.firstElementChild.firstElementChild
+
+                current = elem.firstElementChild.firstElementChild.firstElementChild
+
             }
             else{
                 current = elem.children[1].firstElementChild.firstElementChild;

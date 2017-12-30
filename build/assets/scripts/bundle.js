@@ -119,7 +119,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     } else {
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
-        Object(__WEBPACK_IMPORTED_MODULE_5__slider__["a" /* default */])();
+        Object(__WEBPACK_IMPORTED_MODULE_5__slider__["a" /* default */])(1.3);
     }
 
     /***/
@@ -464,7 +464,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     "use strict";
     /* harmony default export */
-    __webpack_exports__["a"] = () => {
+    __webpack_exports__["a"] = duration => {
         let slide_move = (() => {
             var _ref = _asyncToGenerator(function* (flag) {
                 console.log('click');
@@ -474,13 +474,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 if (trans_wait.complete) {
                     if (flag) {
 
-                        slide_right.style.top = `translateY(-${height})`;
-                        slide_left.style.transform = `translateY(${height})`;
                         yield change_head(slide_right, flag);
                     } else {
 
-                        slide_right.style.transform = `translateY(${height})`;
-                        slide_left.style.transform = `translateY(-${height})`;
                         yield change_head(slide_left);
                     }
                 }
@@ -506,9 +502,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         slide_right.children[0].cloneNode(true);
         slide_left.lastChild.cloneNode(true);
 
-        //slide_move(true);
-        console.log(slide_right.style.transform);
-
         control_next.addEventListener('click', e => {
             e.preventDefault();
             slide_move(true);
@@ -521,15 +514,37 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
         function append_ins(flag = false) {
             if (flag) {
-                slide_right.appendChild(slide_right.children[0]);
-                slide_right.children[0].cloneNode(true);
-                slide_left.appendChild(slide_left.children[0]);
-                slide_left.children[0].cloneNode(true);
+                slide_right.style.transition = ` transform ${duration}s linear`;
+                slide_right.style.transform = `translateY(-${height}px)`;
+                setTimeout(() => {
+                    slide_right.appendChild(slide_right.children[0]);
+                    slide_right.style = "";
+                }, duration * 1000);
+
+                slide_left.insertBefore(slide_left.children[1], slide_left.children[0]);
+                slide_left.style.top = "-" + height + "px";
+                slide_left.style.transition = ` transform ${duration}s linear`;
+                slide_left.style.transform = `translateY(${height}px)`;
+                setTimeout(() => {
+                    slide_left.appendChild(slide_left.children[1]);
+                    slide_left.style = "";
+                }, duration * 1000);
             } else {
+                slide_left.style.top = "-" + height + "px";
                 slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
-                slide_left.lastChild.cloneNode(true);
-                slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[0]);
-                slide_right.lastChild.cloneNode(true);
+                slide_left.style.transition = ` transform ${duration}s linear`;
+                slide_left.style.transform = `translateY(${height}px)`;
+                setTimeout(() => {
+                    slide_left.style = "";
+                }, duration * 1000);
+
+                slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[1]);
+                slide_right.style.transition = ` transform ${duration}s linear`;
+                slide_right.style.transform = `translateY(-${height}px)`;
+                setTimeout(() => {
+                    slide_right.insertBefore(slide_right.children[1], slide_right.children[0]);
+                    slide_right.style = "";
+                }, duration * 1000);
             }
             const trans = { complete: true };
             return trans;
@@ -538,7 +553,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         function change_head(elem, flag) {
             let current;
             if (flag) {
-                current = elem.lastElementChild.firstElementChild.firstElementChild;
+
+                current = elem.firstElementChild.firstElementChild.firstElementChild;
             } else {
                 current = elem.children[1].firstElementChild.firstElementChild;
             }
