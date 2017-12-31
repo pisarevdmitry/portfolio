@@ -8,12 +8,13 @@ export default (duration) => {
     const text = document.querySelector('.slider__title');
     const tech = document.querySelector('.slider__tech');
     const link = document.querySelector('.slider__link');
+    let trigger = true;
 
     slide_right.appendChild(slide_right.children[0]);
     slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
     slide_right.children[0].cloneNode(true);
     slide_left.lastChild.cloneNode(true);
- 
+
     control_next.addEventListener('click', e => {
         e.preventDefault();
         slide_move(true)
@@ -27,7 +28,10 @@ export default (duration) => {
 
       async function slide_move(flag) {
           console.log('click');
-
+            if(!trigger){
+                return
+            }
+            trigger = false
           const trans_wait = await append_ins(flag);
 
           if (trans_wait.complete) {
@@ -49,6 +53,7 @@ export default (duration) => {
               setTimeout(() =>{
                   slide_right.appendChild(slide_right.children[0]);
                   slide_right.style=""
+                  trigger = true
               },duration * 1000);
 
               slide_left.insertBefore(slide_left.children[1], slide_left.children[0]);
@@ -67,7 +72,8 @@ export default (duration) => {
               slide_left.style.transition = ` transform ${duration}s linear`;
               slide_left.style.transform = `translateY(${height}px)`;
               setTimeout(() =>{
-                  slide_left.style=""
+                  slide_left.style="";
+                  trigger=true
               },duration *1000);
 
               slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[1]);

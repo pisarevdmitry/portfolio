@@ -437,23 +437,41 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         let container = document.getElementById("preloader");
         let text = document.getElementById("text");
         let inner = document.getElementById("inner");
-        let dash = 0;
-        let persent = 0;
-        text.innerHTML = 1;
-        inner.style.strokeDasharray = "1.57 282.6";
+        let images = document.querySelectorAll("img");
+        let videos = document.querySelectorAll("video");
+        let resources = Array.prototype.concat.call(...images, ...videos);
+        let count = 0;
+
         if (sessionStorage.getItem("my-preloader")) {
             container.style.display = "none";
-        } else {
-            sessionStorage.setItem("my-preloader", true);
-            const timer = setInterval(() => {
-                text.innerHTML = ++persent;
-                inner.style.strokeDasharray = `${dash += 1.57} 282.6`;
-                if (persent === 100) clearInterval(timer);
-            }, 70);
+        }
+        const stop = percents => {
+            if (percents === 100) {
+                setTimeout(() => {
+                    sessionStorage.setItem("my-preloader", true);
+                    container.style.display = "none";
+                }, 1000);
+            }
+        };
+        const show = number => {
+            let percents = Math.round(number / resources.length * 100);
+            text.innerHTML = percents;
+            inner.style.strokeDasharray = `${percents * 1.57} 282.6`;
+            stop(percents);
+        };
 
-            setTimeout(() => {
-                container.style.display = "none";
-            }, 7700);
+        for (let i = 0; i <= images.length - 1; i++) {
+            console.log(images[i], "loading");
+            images[i].addEventListener("load", () => {
+                count++;
+                show(count);
+            });
+        }
+        for (let i = 0; i <= videos.length - 1; i++) {
+            videos[i].addEventListener("canplay", () => {
+                count++;
+                show(count);
+            });
         }
     };
 
@@ -468,7 +486,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         let slide_move = (() => {
             var _ref = _asyncToGenerator(function* (flag) {
                 console.log('click');
-
+                if (!trigger) {
+                    return;
+                }
+                trigger = false;
                 const trans_wait = yield append_ins(flag);
 
                 if (trans_wait.complete) {
@@ -496,6 +517,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         const text = document.querySelector('.slider__title');
         const tech = document.querySelector('.slider__tech');
         const link = document.querySelector('.slider__link');
+        let trigger = true;
 
         slide_right.appendChild(slide_right.children[0]);
         slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
@@ -519,6 +541,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 setTimeout(() => {
                     slide_right.appendChild(slide_right.children[0]);
                     slide_right.style = "";
+                    trigger = true;
                 }, duration * 1000);
 
                 slide_left.insertBefore(slide_left.children[1], slide_left.children[0]);
@@ -536,6 +559,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 slide_left.style.transform = `translateY(${height}px)`;
                 setTimeout(() => {
                     slide_left.style = "";
+                    trigger = true;
                 }, duration * 1000);
 
                 slide_right.insertBefore(slide_right.children[slide_right.children.length - 1], slide_right.children[1]);

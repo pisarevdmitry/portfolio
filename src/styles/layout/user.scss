@@ -7,22 +7,29 @@
   -moz-transform: rotateY(0deg);
 
 }
-.user-preview__image,.hero__image{
+.user-preview__image{
+  width: 140px;
+  height:140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: rem(25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+.hero__image{
+  margin-bottom: rem(25);
   width: 140px;
   height:140px;
   border-radius: 50%;
   background: url("../images/jpg/photo1.jpg");
   background-position: 50% 50%;
   overflow: hidden;
-  margin-top: rem(25);
-
-  }
-.hero__image{
-  margin-bottom: rem(25);
-
 
 }
+.user-preview__picture{
 
+}
 .user-preview__title{
   font: rem(28) Roboto-Medium;
   color: white;
