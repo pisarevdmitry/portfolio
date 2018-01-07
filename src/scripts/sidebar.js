@@ -20,7 +20,7 @@ export default (container) => {
    const sidebarMove = () => {
        if(blog.getBoundingClientRect().top <=10 ){
            container.classList.add("blog__nav_fixed");
-           console.log(window.innerWidth);
+
             if(window.innerWidth<768){
                 articleNavList.style.top="50%"
             }

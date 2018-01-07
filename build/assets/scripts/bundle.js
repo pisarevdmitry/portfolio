@@ -92,7 +92,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__preloader__ = __webpack_require__(5);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__slider__ = __webpack_require__(6);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__sidebar__ = __webpack_require__(7);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__scroll__ = __webpack_require__(8);
 
+    scroll = Object(__WEBPACK_IMPORTED_MODULE_7__scroll__["a" /* default */])();
     let flip = document.querySelector('#flip-container');
     let autorization = document.querySelector("#btn_autorization");
     let button = document.getElementById("hamburger-menu");
@@ -112,14 +114,18 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_3__map__["a" /* default */])();
+        scroll.top();
     } else if (url.indexOf("/blog.html") > -1) {
         Object(__WEBPACK_IMPORTED_MODULE_6__sidebar__["a" /* default */])(blogNav);
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
+        scroll.top();
     } else {
         Object(__WEBPACK_IMPORTED_MODULE_2__menu__["a" /* default */])(button, nav);
         Object(__WEBPACK_IMPORTED_MODULE_1__parallax__["a" /* default */])(hero, container);
         Object(__WEBPACK_IMPORTED_MODULE_5__slider__["a" /* default */])(1.3);
+        scroll.top();
+        scroll.bottom();
     }
 
     /***/
@@ -420,7 +426,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             }
         };
         setMap();
-        window.addEventListener("scroll", () => {
+        window.addEventListener("resize", () => {
             screenWidth = screen.width;
             setMap();
         });
@@ -521,8 +527,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
         slide_right.appendChild(slide_right.children[0]);
         slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
-        slide_right.children[0].cloneNode(true);
-        slide_left.lastChild.cloneNode(true);
 
         control_next.addEventListener('click', e => {
             e.preventDefault();
@@ -620,7 +624,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         const sidebarMove = () => {
             if (blog.getBoundingClientRect().top <= 10) {
                 container.classList.add("blog__nav_fixed");
-                console.log(window.innerWidth);
+
                 if (window.innerWidth < 768) {
                     articleNavList.style.top = "50%";
                 }
@@ -663,6 +667,37 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         document.addEventListener("scroll", sidebarMove);
 
         articleNavList.addEventListener("click", slideTo);
+    };
+
+    /***/
+},
+/* 8 */
+/***/function (module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    /* harmony default export */
+    __webpack_exports__["a"] = () => {
+        let top = document.querySelector(".scroll__down");
+        let sections = document.querySelector(".wrapper").children;
+        let bottom = document.querySelector(".scroll__up");
+
+        console.log(top);
+        const scrollTop = () => {
+
+            sections[1].scrollIntoView({ behavior: "smooth", block: "start" });
+        };
+        const scrollDown = () => {
+            sections[sections.length - 2].scrollIntoView({ behavior: "smooth", block: "end" });
+        };
+
+        return {
+            top() {
+                top.addEventListener("click", scrollTop);
+            },
+            bottom() {
+                bottom.addEventListener("click", scrollDown);
+            }
+        };
     };
 
     /***/

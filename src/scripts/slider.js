@@ -12,8 +12,7 @@ export default (duration) => {
 
     slide_right.appendChild(slide_right.children[0]);
     slide_left.insertBefore(slide_left.children[slide_left.children.length - 1], slide_left.children[0]);
-    slide_right.children[0].cloneNode(true);
-    slide_left.lastChild.cloneNode(true);
+
 
     control_next.addEventListener('click', e => {
         e.preventDefault();
@@ -31,7 +30,7 @@ export default (duration) => {
             if(!trigger){
                 return
             }
-            trigger = false
+            trigger = false;
           const trans_wait = await append_ins(flag);
 
           if (trans_wait.complete) {
@@ -52,7 +51,7 @@ export default (duration) => {
               slide_right.style.transform = `translateY(-${height}px)`;
               setTimeout(() =>{
                   slide_right.appendChild(slide_right.children[0]);
-                  slide_right.style=""
+                  slide_right.style="";
                   trigger = true
               },duration * 1000);
 

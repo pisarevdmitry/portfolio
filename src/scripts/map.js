@@ -248,7 +248,7 @@ export default () =>{
         if(screenWidth > 780) {
             map.setCenter({lat:55.64566662, lng: 37.7236551})
         }
-        else if(screenWidth <= 780 &&screenWidth > 560 ){
+        else if(screenWidth <= 780 && screenWidth > 560 ){
             map.setCenter({lat:55.64611464, lng: 37.72957742})
         }
         else if(screenWidth <= 560){
@@ -256,7 +256,7 @@ export default () =>{
         }
     };
     setMap();
-    window.addEventListener("scroll",()=>{
+    window.addEventListener("resize",()=>{
         screenWidth = screen.width;
         setMap()
     })
