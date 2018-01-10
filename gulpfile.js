@@ -4,19 +4,21 @@ const svgSprite = require('gulp-svg-sprite');
 const svgmin = require('gulp-svgmin');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
-
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require("gulp-autoprefixer");
 const plumber = require('gulp-plumber');
 const  gutil = require('gulp-util');
+require("babel-polyfill");
 
 const del = require('del');
 
 const browserSync = require('browser-sync').create();
 
-const gulpWebpack = require('gulp-webpack');
+const gulpWebpack = require('webpack-stream');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 //конфиг сборщика свг
@@ -103,7 +105,7 @@ function styles() {
             this.emit('end');
         }))
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass(/*{outputStyle: 'compressed'}*/))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -121,8 +123,15 @@ function clean() {
 // webpack
 function scripts() {
     return gulp.src('src/scripts/main.js')
-        .pipe(gulpWebpack(webpackConfig, webpack)) 
-        .pipe(gulp.dest(paths.scripts.dest));
+        .pipe(plumber(function (error) {
+            gutil.log(error.message);
+            this.emit('end');
+        }))
+        .pipe(gulpWebpack(webpackConfig, webpack))
+        .pipe(babel())
+        .pipe(gulp.dest(paths.scripts.dest))
+
+
 }
 
 // галповский вотчер
@@ -160,6 +169,7 @@ exports.clean = clean;
 exports.images = images;
 exports.fonts = fonts;
 exports.svgBuild = svgBuild;
+exports.watch = scripts;
 gulp.task('default', gulp.series(
     clean,
     gulp.parallel(styles, templates, images, scripts,fonts),

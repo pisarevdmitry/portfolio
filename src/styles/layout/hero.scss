@@ -1,0 +1,155 @@
+.hero{
+  background-image: url("../images/jpg/night.jpg");
+  background-size: cover;
+  position: relative;
+  height: 120vh;
+  background-position-x: center;
+  min-height: 650px;
+  &_about{
+    height: 100vh;
+  }
+
+}
+.hero__top-line{
+  padding-top: rem(15);
+  display: flex;
+  flex-direction: row;
+  padding-left: rem(25);
+  padding-right: rem(25);
+  align-items: center;
+  justify-content: space-between;
+}
+.hamburger-menu{
+  height: 43px;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  width: 40px;
+  @include iphone{
+  width: 25px;
+  }
+}
+
+.hamburger-menu-bars{
+  width: rem(43);
+  height:rem(5);
+  background: white;
+  border-radius:rem(10) ;
+  box-shadow: 0 rem(15)  white, 0 rem(-15) white ;
+  transition: .5s linear;
+  @include iphone{
+   width: 25px;
+    box-shadow:0  rem(15)  white, 0 rem(-15) white;
+  }
+  &_closed{
+      box-shadow: none;
+      position: relative;
+      transform: rotate(45deg);
+      &:after{
+        content: '';
+        width: rem(43);
+        height: rem(5);
+        position: absolute;
+        background: white;
+        border-radius:rem(10);
+        transform: rotate(-90deg);
+        @include iphone{
+          width: 25px;
+        }
+      }
+    }
+  }
+
+
+
+.hero__content{
+  position: relative;
+  top:45%;
+  transform: translateY(-90%);
+  padding-top: rem(15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+.hero__bg{
+  height: 40vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  &_blog{
+    fill: #faf8f0;
+  }
+  &_works{
+    fill: rgba(13,17,32,.8);
+  }
+  &_about{
+    fill: #f2f0e8;
+  }
+  &_mobile{
+    display: none;
+    @include ipad{
+      display: block;
+    }
+  }
+  &_desktop{
+    height: 20vh;
+  }
+  &_left{
+    fill: #f2f0e8;
+
+  }
+  &_right{
+   fill: #f4f5f0;
+    @include ipad{
+      fill: #f2f0e8;
+    }
+   }
+
+}
+.hero__title{
+  font: rem(28) "Roboto Medium";
+  padding-bottom: rem(10);
+  }
+.hero__title_works{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: rem(30);
+  z-index: 5;
+}
+.video{
+  position: absolute;
+  z-index: -2;
+  margin-left: -15px;
+}
+.parallax{
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.parallax__layer{
+ position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  will-change: transform;
+
+}
+.parallax__image{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60%;
+  &_about{
+    bottom: -10vh;
+  }
+}

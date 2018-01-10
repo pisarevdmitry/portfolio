@@ -8,11 +8,15 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCovicKPAVEwcNElLO4g97h58nG0sVnoQI&amp;"></script>
     <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <section class="hero hero_about">
+      <section class="hero hero_about" id="hero">
+        <div class="parallax" id="parallax">
+          <div class="parallax__layer"><img class="parallax__image parallax__image_about" src="assets/images/png/Layer 1.png"></div>
+        </div>
         <div class="hero__top-line">
           <ul class="social">
             <li class="social__item"><a class="social__link" href="#">
@@ -27,7 +31,7 @@
                 <svg class="social__image">
                   <use xlink:href="assets/images/svg/sprite.svg#in"></use>
                 </svg></a></li>
-          </ul><a class="hamburger-menu" href="#">
+          </ul><a class="hamburger-menu" id="hamburger-menu" href="#">
             <div class="hamburger-menu-bars"></div></a>
         </div>
         <div class="hero__content"><span class="bg bg_intro">
@@ -47,7 +51,7 @@
       <section class="about">
         <div class="about__left">
           <div class="about__left-title">
-            <div class="about-title title">Обо&nbspмне<span class="bg bg_works">
+            <div class="about-title title">Обо&nbspмне<span class="bg bg_works bg_about">
                 <svg class="bg__image_blue">
                   <use xlink:href="assets/images/svg/sprite.svg#stars2"></use>
                 </svg></span></div>
@@ -80,9 +84,9 @@
                   <ul class="skills-row__list">
                     <li class="skills-row__item">
                       <div class="skill">
-                        <svg class="skill__circle" viewBox="0 0 120 120">
+                        <svg class="skill__circle" viewBox="0 0 120 120" preserveAspectRatio="none">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__60" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Html5</span>
                       </div>
                     </li>
@@ -90,7 +94,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__60" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Css3</span>
                       </div>
                     </li>
@@ -98,7 +102,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__40" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">JavaScript & Jquery</span>
                       </div>
                     </li>
@@ -113,7 +117,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__5" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">PHP</span>
                       </div>
                     </li>
@@ -121,7 +125,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__5" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">MySQL</span>
                       </div>
                     </li>
@@ -129,7 +133,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__30" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Node.js & npm</span>
                       </div>
                     </li>
@@ -137,7 +141,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__5" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Mongo.db</span>
                       </div>
                     </li>
@@ -152,7 +156,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__40" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Git</span>
                       </div>
                     </li>
@@ -160,7 +164,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__40" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Gulp</span>
                       </div>
                     </li>
@@ -168,7 +172,7 @@
                       <div class="skill">
                         <svg class="skill__circle" viewBox="0 0 120 120">
                           <circle class="skill__circle-first" r="45" cx="50%" cy="50%" fill="none"></circle>
-                          <circle class="skill__circle-second" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
+                          <circle class="skill__circle-second skill__30" r="45" cx="50%" cy="50%" transform="rotate(-90 60 60)"></circle>
                         </svg><span class="skill__title">Webpack</span>
                       </div>
                     </li>
@@ -180,7 +184,7 @@
         </div>
       </section>
       <section class="map">
-        <div class="google-map"></div>
+        <div class="google-map" id="map"></div>
         <div class="map__contacts">
           <div class="contacts">
             <div class="contacts__title">
@@ -193,7 +197,7 @@
                     <use xlink:href="assets/images/svg/sprite.svg#skype_n"></use>
                   </svg>
                 </div>
-                <div class="contacts__content"><span class="main-text">+79060761095</span></div>
+                <div class="contacts__content"><span class="main-text contacts__text">+79060761095</span></div>
               </li>
               <li class="contacts__item">
                 <div class="contacts__icon">
@@ -201,7 +205,7 @@
                     <use xlink:href="assets/images/svg/sprite.svg#phone_n"></use>
                   </svg>
                 </div>
-                <div class="contacts__content"><span class="main-text">+79060761095</span></div>
+                <div class="contacts__content"><span class="main-text contacts__text">+79060761095</span></div>
               </li>
               <li class="contacts__item">
                 <div class="contacts__icon">
@@ -209,7 +213,7 @@
                     <use xlink:href="assets/images/svg/sprite.svg#envelope_n"></use>
                   </svg>
                 </div>
-                <div class="contacts__content"><span class="main-text">pisarev_dmitry@mail.ru</span></div>
+                <div class="contacts__content"><span class="main-text contacts__text">pisarev_dmitry@mail.ru</span></div>
               </li>
               <li class="contacts__item">
                 <div class="contacts__icon">
@@ -217,7 +221,7 @@
                     <use xlink:href="assets/images/svg/sprite.svg#map_n"></use>
                   </svg>
                 </div>
-                <div class="contacts__content"><span class="main-text">г.Москва, Новочеркасский бульвар, д46</span></div>
+                <div class="contacts__content"><span class="main-text contacts__text">г.Москва</span></div>
               </li>
             </ul>
           </div>
@@ -225,10 +229,10 @@
         <footer class="footer footer_absolute">
           <div class="footer__column"><span class="main-text white">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.</span></div>
           <div class="footer__column">
-            <nav class="navigation">
+            <nav class="navigation" id="navigation">
               <ul class="navigation__list">
                 <li class="navigation__item"><a class="navigation__link" href="my-works.html"><span class="navigation__text">Мои работы</span></a></li>
-                <li class="navigation__item"><a class="navigation__link" href="about.html"><span class="navigation__text">Обо мне</span></a></li>
+                <li class="navigation__item"><a class="navigation__link navigation__link_current" href="about.html"><span class="navigation__text">Обо мне</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="blog.html"><span class="navigation__text">Блог</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="index.html"><span class="navigation__text">Авторизация</span></a></li>
               </ul>
@@ -248,7 +252,7 @@
                   </svg></a></li>
             </ul>
           </div>
-          <div class="footer__column"><span class="main-text white">Skype: +79060761095</span><span class="main-text white">pisarev_dmitry@mail.ru</span><span class="main-text white">+7 906 076 10 95</span><span class="main-text white">г.Москва Новочеркасский б-р, д.46</span></div>
+          <div class="footer__column"><span class="main-text white">Skype: +79060761095</span><span class="main-text white">pisarev_dmitry@mail.ru</span><span class="main-text white">+7 906 076 10 95</span><span class="main-text white">г.Москва</span></div>
           <div class="footer__signature">
             <ul class="signature">
               <li class="signature__item">Дмитрий Писарев</li>

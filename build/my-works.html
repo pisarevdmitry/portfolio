@@ -8,11 +8,15 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="assets/styles/style.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCovicKPAVEwcNElLO4g97h58nG0sVnoQI&amp;"></script>
     <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
-      <section class="hero">
+      <section class="hero" id="hero">
+        <div class="parallax" id="parallax">
+          <div class="parallax__layer"><img class="parallax__image parallax__image_about" src="assets/images/png/Layer 1.png"></div>
+        </div>
         <div class="hero__top-line">
           <ul class="social">
             <li class="social__item"><a class="social__link" href="#">
@@ -27,7 +31,7 @@
                 <svg class="social__image">
                   <use xlink:href="assets/images/svg/sprite.svg#in"></use>
                 </svg></a></li>
-          </ul><a class="hamburger-menu" href="#">
+          </ul><a class="hamburger-menu" id="hamburger-menu" href="#">
             <div class="hamburger-menu-bars"></div></a>
         </div>
         <div class="hero__content"><span class="bg bg_intro">
@@ -54,38 +58,42 @@
           <div class="slider__link"><a class="btn btn_link" href="http://cd35590.tmweb.ru/"><span class="btn__text">Посмотреть сайт</span></a></div>
         </div>
         <div class="slider__head">
-          <div class="slider__image_big"><img class="slider__picture" src="assets/images/jpg/work-1.png"></div>
+          <div class="slider__image_big"><img class="slider__picture" src="assets/images/png/coworking.png"></div>
         </div>
-        <div class="slider__slide">
-          <ul class="slider__slide_prev slider-list">
-            <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-1.png"></div>
-            </li>
-            <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-2.png"></div>
-            </li>
-            <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-3.png"></div>
-            </li>
-            <li class="slider__overlay"><a class="scroll scroll__slider">
-                <svg class="scroll__image scroll__image_slider">
-                  <use xlink:href="assets/images/svg/sprite.svg#portf_arrow_down"></use>
-                </svg></a></li>
-          </ul>
+        <div class="slider__slide"><a class="scroll scroll__slider scroll__slider_next">
+            <svg class="scroll__image scroll__image_slider">
+              <use xlink:href="assets/images/svg/sprite.svg#portf_arrow_down"></use>
+            </svg></a><a class="scroll scroll__slider scroll__slider_prev">
+            <svg class="scroll__image scroll__image_slider">
+              <use xlink:href="assets/images/svg/sprite.svg#portf_arrow_up"></use>
+            </svg></a>
           <ul class="slider__slide_next slider-list">
             <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-3.png"></div>
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/coworking.png" data-title="Сайт &quot;воркадиум&quot;" data-tech="HTML, CSS" data-link="http://cd35590.tmweb.ru/"></div>
             </li>
             <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-2.png"></div>
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/burgers.png" data-title="Лендинг магазина бургеров" data-tech="HTML, CSS, JS, Ajax, Gulp, Git" data-link="http://burger.cd35590.tmweb.ru/"></div>
             </li>
             <li class="slider-list__item">
-              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-3.png"></div>
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/portfolio.png" data-title="Сайт-портфолио веб-разработчика" data-tech="HTML, CSS, JS,Gulp, Webpack, Git" data-link="https://pisarevdmitry.github.io/portfolio/build/"></div>
             </li>
-            <div class="slider__overlay"><a class="scroll scroll__slider">
-                <svg class="scroll__image scroll__image_slider">
-                  <use xlink:href="assets/images/svg/sprite.svg#portf_arrow_up"></use>
-                </svg></a></div>
+            <li class="slider-list__item">
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-4.png" data-title="Сайт №4" data-tech="HTML, CSS" data-link="http://cd35590.tmweb.ru/"></div>
+            </li>
+          </ul>
+          <ul class="slider__slide_prev slider-list">
+            <li class="slider-list__item">
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/coworking.png" data-title="Сайт &quot;воркадиум&quot;" data-tech="HTML, CSS" data-link="http://cd35590.tmweb.ru/"></div>
+            </li>
+            <li class="slider-list__item">
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/burgers.png" data-title="Лендинг магазина бургеров" data-tech="HTML, CSS, JS, Ajax, Gulp, Git" data-link="http://burger.cd35590.tmweb.ru/"></div>
+            </li>
+            <li class="slider-list__item">
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/png/portfolio.png" data-title="Сайт-портфолио веб-разработчика" data-tech="HTML, CSS, JS,Gulp, Webpack, Git" data-link="https://pisarevdmitry.github.io/portfolio/build/"></div>
+            </li>
+            <li class="slider-list__item">
+              <div class="slider__image_small"><img class="slider__picture" src="assets/images/jpg/work-4.png" data-title="Сайт №4" data-tech="HTML, CSS" data-link="http://cd35590.tmweb.ru/"></div>
+            </li>
           </ul>
         </div>
       </section>
@@ -96,7 +104,7 @@
             </svg></span></div>
         <ul class="reviewers">
           <li class="reviewer">
-            <div class="reviewer__image"><img class="reviewer__picture" src="assets/images/jpg/reviewer1.jpg"></div>
+            <div class="reviewer__image"><img class="reviewer__picture reviewer__picture_big" src="assets/images/jpg/reviewer1.jpg"></div>
             <div class="reviewer__text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</div>
             <div class="reviewer__signature"><span class="reviewer__name">Ковальчук Дмитрий</span><span>— основатель Loftschool</span></div>
           </li>
@@ -110,13 +118,13 @@
           <h2 class="sub-title white line">Связаться со мной</h2>
           <form class="form feedback" action="" method="POST">
             <div class="form__row">
-              <input class="form__input form__input_feedback main-text" type="text" name="name" placeholder="Ваше имя">
+              <input class="form__input form__input_feedback main-text" type="text" name="name" placeholder="Ваше имя" required>
             </div>
             <div class="form__row">
-              <input class="form__input form__input_feedback main-text" type="email" name="name" placeholder="Ваш email">
+              <input class="form__input form__input_feedback main-text" type="email" name="name" placeholder="Ваш email" required>
             </div>
             <div class="form__row">
-              <textarea class="form__textarea main-text" name="textarea" placeholder="Ваше сообщение"></textarea>
+              <textarea class="form__textarea main-text" name="textarea" placeholder="Ваше сообщение" required></textarea>
             </div>
             <div class="form__row form__row_buttons">
               <input class="form__submit form__submit_feedback" type="submit" name="submit" value="Отправить">
@@ -132,9 +140,9 @@
         <footer class="footer footer_absolute">
           <div class="footer__column"><span class="main-text white">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.</span></div>
           <div class="footer__column">
-            <nav class="navigation">
+            <nav class="navigation" id="navigation">
               <ul class="navigation__list">
-                <li class="navigation__item"><a class="navigation__link" href="my-works.html"><span class="navigation__text">Мои работы</span></a></li>
+                <li class="navigation__item"><a class="navigation__link navigation__link_current" href="my-works.html"><span class="navigation__text">Мои работы</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="about.html"><span class="navigation__text">Обо мне</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="blog.html"><span class="navigation__text">Блог</span></a></li>
                 <li class="navigation__item"><a class="navigation__link" href="index.html"><span class="navigation__text">Авторизация</span></a></li>
@@ -142,20 +150,20 @@
             </nav>
             <ul class="social">
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#vk"></use>
                   </svg></a></li>
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#github"></use>
                   </svg></a></li>
               <li class="social__item"><a class="social__link" href="#">
-                  <svg class="social__image social__image_grey">
+                  <svg class="social__image social__image_grey social__image_mobile">
                     <use xlink:href="assets/images/svg/sprite.svg#in"></use>
                   </svg></a></li>
             </ul>
           </div>
-          <div class="footer__column"><span class="main-text white">Skype: +79060761095</span><span class="main-text white">pisarev_dmitry@mail.ru</span><span class="main-text white">+7 906 076 10 95</span><span class="main-text white">г.Москва Новочеркасский б-р, д.46</span></div>
+          <div class="footer__column"><span class="main-text white">Skype: +79060761095</span><span class="main-text white">pisarev_dmitry@mail.ru</span><span class="main-text white">+7 906 076 10 95</span><span class="main-text white">г.Москва</span></div>
           <div class="footer__signature">
             <ul class="signature">
               <li class="signature__item">Дмитрий Писарев</li>
